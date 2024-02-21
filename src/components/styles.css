@@ -1,6 +1,6 @@
 .wrapper{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: space-around;
     margin: auto;
@@ -63,5 +63,25 @@
         text-align: center;
     }
     
+}
+
+.down{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.up{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.up >h2 {
+    color: rgb(255, 255, 255);
+    font-size: 1.5rem;
 }
 

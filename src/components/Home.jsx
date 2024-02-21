@@ -37,19 +37,41 @@ const Home = () => {
             createRandomHexColor()
         }
     }, typeOfColor)
+
+    const checkRandomColor = () => {
+        if (typeOfColor === "hex") {
+            return (createRandomHexColor)
+        }
+        else {
+            return (createRandomRgbColor)
+        }
+    }
+
+    const randomColorText = () => {
+        if (typeOfColor === "hex") {
+            return <h2>HEX COLOR</h2>
+        }
+        else {
+            return <h2> RGB COLOR </h2>
+        }
+    }
     return (
-        <div className='wrapper' style={{ backgroundColor: color, width: "100vw"}} >
-            <div className="box">
-                <div onClick={() => setTypeOfColor("hex")}>Create Hex Color</div>
-                <div onClick={() => setTypeOfColor("rgb")}>Create RGB Color</div>
-                <div onClick={typeOfColor === "hex" ? createRandomHexColor : createRandomRgbColor}> Random Color </div>
+        <div className='wrapper' style={{ backgroundColor: color, width: "100vw" }} >
+            <div className="up">
+                 <h2> Color Generator </h2>
             </div>
+            <div className="down">
+                <div className="box">
+                    <div onClick={() => setTypeOfColor("hex")}>Create Hex Color</div>
+                    <div onClick={() => setTypeOfColor("rgb")}>Create RGB Color</div>
+                    <div onClick={checkRandomColor()}> Random Color </div>
+                </div>
 
-            <div className='color' style={{ display: "flex", color: "white", justifyContent: "center", alignItems: "center", fontSize: "30px", marginTop: "50px" }}>
-                <h1>{typeOfColor === "hex" ? "Hex Color: " : "RGB Color: "}</h1>
-                <h1>{color}</h1>
+                <div className='color' style={{ display: "flex", color: "white", justifyContent: "center", alignItems: "center", fontSize: "30px", marginTop: "50px" }}>
+                    <h1> {randomColorText()} </h1>
+                    <h1>{color}</h1>
+                </div>
             </div>
-
         </div>
     )
 
